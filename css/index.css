@@ -1,0 +1,13 @@
+.headerbutton{
+  color: rgba(0, 0, 0, .5);
+  border: solid 1px transparent;
+  background-color: transparent;
+}
+.headerbutton:hover{
+  background-color: transparent;
+  border: solid 1px #495057;
+  border-radius: 20px;
+  color: #495057;
+}
+
+
