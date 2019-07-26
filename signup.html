@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Create a new account</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="./signup/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="./signup/css/style.css">
+	</head>
+
+	<body>
+
+		<div class="wrapper" style="background-image: url('./signup/img/signup-bg-1.jpg');">
+			<div class="inner" style="border-radius: 10px;">
+				<div class="image-holder" style="margin-top: auto;margin-bottom: auto;">
+					<img src="./signup/img/signup-2.jpg" alt="">
+				</div>
+				<form action="">
+					<h3>Registration Form</h3>
+					<div class="form-group">
+						<input type="text" placeholder="First Name" class="form-control" required>
+						<input type="text" placeholder="Last Name" class="form-control" required>
+					</div>
+					<div class="form-wrapper">
+						<input type="text" placeholder="Username" class="form-control" required>
+						<i class="">@eveil.com</i>
+					</div>
+					<div class="form-wrapper">
+						<input type="password" placeholder="Password" class="form-control" id="password" required>
+						<i class="zmdi zmdi-lock"></i>    
+					</div>
+					<div class="form-wrapper">
+						<input type="password" placeholder="Confirm Password" class="form-control" id="confirm_password" required>
+						<i class="zmdi zmdi-lock"></i>
+					</div>
+					<button>Sign Up
+						<i class="zmdi zmdi-arrow-right"></i>
+          </button>
+          <script>
+            var password = document.getElementById("password") , confirm_password = document.getElementById("confirm_password");
+            function validatePassword(){
+              if(password.value != confirm_password.value) {
+                confirm_password.setCustomValidity("Passwords Don't Match");
+              } else {
+                confirm_password.setCustomValidity('');
+              }
+            }
+        
+            password.onchange = validatePassword;
+            confirm_password.onkeyup = validatePassword;
+          </script>
+				</form>
+			</div>
+		</div>
+		
+	</body>
+</html>
