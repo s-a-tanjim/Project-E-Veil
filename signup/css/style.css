@@ -79,7 +79,7 @@ a:hover {
 }
 
 .inner form {
-  width: 50%;
+  width: 100%;
   padding-top: 36px;
   padding-left: 45px;
   padding-right: 45px;
@@ -98,7 +98,7 @@ a:hover {
 }
 
 .form-group input {
-  width: 50%;
+  width: 70%;
 }
 
 .form-group input:first-child {
