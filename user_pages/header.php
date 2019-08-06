@@ -9,7 +9,9 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin - Tables</title>
+  <?php
+  $output = '<html><title>%TITLE%</title><body>';
+  ?>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,8 +27,8 @@
 <body id="page-top">
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-    
-    <a class="navbar-brand mr-1" href="index.html"><i class="fab fa-500px"></i>Email</a>
+
+    <a class="navbar-brand mr-1" href="inbox.php"><i class="fab fa-500px"></i>Email</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -46,14 +48,14 @@
 
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">
-      
+
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-user-circle fa-fw"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">Profile</a>
-          <a class="dropdown-item" href="#">Settings</a>
+          <a class="dropdown-item" href="./profile.php">Profile</a>
+          <a class="dropdown-item" href="./accountsettings.php">Settings</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
         </div>
@@ -67,12 +69,12 @@
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="compose.php">
               <i class="fas fa-pencil-alt"></i>
               <span>Compose</span></a>
           </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="inbox.php">
           <i class="fas fa-envelope"></i>
           <span>Inbox</span>
         </a>
@@ -93,9 +95,9 @@
           <span>Account</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="#">Profile</a>
-          <a class="dropdown-item" href="#">Account Settings</a>
-          <a class="dropdown-item" href="#">Forgot Password</a>
+          <a class="dropdown-item" href="./profile.php">Profile</a>
+          <a class="dropdown-item" href="./accountsettings.php">Account Settings</a>
+          <a class="dropdown-item" href="../forgetpw.html">Forgot Password</a>
         </div>
       </li>
     </ul>
