@@ -80,12 +80,17 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="outbox.php">
           <i class="fas fa-paper-plane"></i>
           <span>Sent</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="veilbox.php">
+          <i class="fas fa-mask"></i>
+          <span>Veilbox</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="bin.php">
           <i class="fas fa-trash-alt"></i>
           <span>Bin</span></a>
       </li>
