@@ -113,7 +113,7 @@
                                       User Name
                                   </h5>
                                   <h6>
-                                      username@eveil.com
+                                      <?php echo $_SESSION['email']; ?>
                                   </h6>
 
                           <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -142,7 +142,7 @@
                                             <label>Name</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>First_name Last_name</p>
+                                            <p><?php echo $_SESSION['first_name']."   ".$_SESSION['last_name']; ?></p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -150,7 +150,7 @@
                                             <label>Email</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>emai_address@eveil.com</p>
+                                            <p><?php echo $_SESSION['email']; ?></p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -158,7 +158,7 @@
                                             <label>Phone</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>***********</p>
+                                            <p><?php echo $_SESSION['p_number']; ?></p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -166,7 +166,7 @@
                                             <label>Address</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>Country</p>
+                                            <p><?php if(is_null($_SESSION['country'])){echo "n/a";} else{ echo $_SESSION['country'];} ?></p>
                                         </div>
                                     </div>
                             </div>
@@ -176,7 +176,7 @@
                                                 <label>Joind</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Date</p>
+                                                <p><?php echo $_SESSION['creation_date']; ?></p>
                                             </div>
                                         </div>
                                         <div class="row">

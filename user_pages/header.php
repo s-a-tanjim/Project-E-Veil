@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION['email'])==false){   //Checking Session['email'] is set or not
+  header("Location: ../login.php?login=invalid_action");
+  exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +19,7 @@
   <?php
   $output = '<html><title>%TITLE%</title><body>';
   ?>
-
+  <link rel="icon" href="img/settings.png" type="image/icon type">
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 

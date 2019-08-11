@@ -2,53 +2,63 @@
 
   if(isset($_POST['login_submit'])){
 
-    include_once 'db_config.php';
+  include_once 'db_config.php';
 
 
-    $email = mysqli_real_escape_string( $conn , $_POST['email']);
-    $pw =  mysqli_real_escape_string( $conn , $_POST['password']);
+  $email = mysqli_real_escape_string( $conn , $_POST['email']);
+  $pw =  mysqli_real_escape_string( $conn , $_POST['password']);
 
-    $table_name = 'user_info';    //The table used in this page
+  $table_name = 'user_info';    //The table used in this page
 
-    //Error Handle
+  //Error Handle
 
-    //Check empty fiends
+  //Check empty fiends
 
-    if( empty( $email ) || empty( $pw ) ){
-      header("Location: ../signup.html?Signup=EmptyField");
-      exit();
-    }
-    else{
-      if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-        header("Location: ../signup.html?Signup=invalid_email");
-        exit();
-      }
-      else{
-        //$sql= "SELECT * FROM $table_name WHERE email ='$email'";
-        //$result=mysqli_query($conn, $sql);
-        //$resultCheck=mysqli_num_rows($result);
-        
-
-        //Hashing password
-        //$hashpw = password_hash($pw,PASSWORD_DEFAULT);
-        //insert user into database
-        //$sql="INSERT INTO $table_name ( first_name , last_name , email , pw , p_number ,creation_date ) VALUES ( '$first_name ',' $last_name ',' $email ',' $hashpw ',' $phone ', now() )";
-        //mysqli_query($conn,$sql);
-        
-        
-        header("Location: ../login.html?Signup=success");
-        exit();
-        
-      }
-    }
-
-    //$sql = "INSERT Into user_info ( first_name , last_name , email , password , p_number ,creation_date ) values( '$_POST[first_name]' , '$_POST[last_name]' , '$mail_address' , '$_POST[password]' , '$_POST[p_number]', now());";
-  
-  $conn->close();
-  }
-  else{
-    header("Location: ../login.html?=Failed");
+  //check if inputs are empty
+  if(empty($email) || empty($pw)){
+    header("Location: ../login.php?login=empty");
     exit();
   }
-  
-?>
+  else {
+    $sql="SELECT * FROM $table_name WHERE email='$email'";
+    $result=mysqli_query($conn,$sql);
+    $resultCheck=mysqli_num_rows($result);
+    if($resultCheck<1){
+      header("Location: ../login.php?login=username_Not_Found");
+      exit();
+    }
+    else {
+      if($row = mysqli_fetch_assoc($result)){
+        //de-hashing pw
+        $hashedpwcheck=password_verify($pw,$row['pw']);
+        if($hashedpwcheck==false){
+          header("Location: ../login.php?login=wrong_password");
+          exit();
+        }
+        elseif($hashedpwcheck==true){
+          // logged in user account
+          //Storing data  in session from database
+          $_SESSION['email']=$row['email'];
+          $_SESSION['first_name']=$row['first_name'];
+          $_SESSION['last_name']=$row['last_name'];
+          $_SESSION['creation_date']=$row['creation_date'];
+          $_SESSION['pro_pic']=$row['pro_pic'];
+          $_SESSION['p_number']=$row['p_number'];
+          $_SESSION['country']=$row['country'];
+          $_SESSION['city']=$row['city'];
+          $_SESSION['postal_code']=$row['postal_code'];
+          
+          header("Location: ../user_pages/inbox.php?login=LoginSuccess");
+          exit();
+        }
+        else{
+          header("Location: ../user_pages/inbox.php?login=not_success");
+          exit();
+        }
+      }
+    }
+  }
+} else {
+  header("Location: ../login.php?login=invalid_action");
+  exit();
+}

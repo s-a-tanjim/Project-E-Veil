@@ -28,21 +28,21 @@
 
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">E - Veil</a>
+      <a class="navbar-brand" href="index.php">E - Veil</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="login.html">Login
+            <a class="nav-link" href="login.php">Login
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="signup.html">Sign Up</a>
+              <a class="nav-link" href="signup.php">Sign Up</a>
           </li>
           <li class="nav-item">
               <a class="nav-link" href="#">About</a>
@@ -108,6 +108,15 @@
       </div>
     </section>
 
+
+    <div class="parallox" style="background-image: url(./img/parallox1.jpg)"></div>
+
+
+    <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+      <div class="container text-center">
+        <small>Copyright &copy; E-Veil</small>
+      </div>
+    </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

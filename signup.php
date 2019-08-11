@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Create a new account</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
+
 		<!-- MATERIAL DESIGN ICONIC FONT -->
 		<link rel="stylesheet" href="./signup/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 
@@ -16,7 +16,7 @@
 
 		<div class="wrapper" style="background-image: url('./signup/img/signup-bg-1.jpg');">
 			<div class="inner" style="border-radius: 10px;">
-				
+
 				<form action="./db_connection/db_signup.php" method="POST">
 					<h3>Registration Form</h3>
 					<div class="form-group">
@@ -33,14 +33,14 @@
 					</div>
 					<div class="form-wrapper">
 						<input type="password" placeholder="Password" class="form-control" id="password" name="password" required>
-						<i class="zmdi zmdi-lock"></i>    
+						<i class="zmdi zmdi-lock"></i>
 					</div>
 					<div class="form-wrapper">
 						<input type="password" placeholder="Confirm Password" class="form-control" id="confirm_password" name="confirm_password" required>
 						<i class="zmdi zmdi-lock"></i>
 					</div>
 					<div class="form-wrapper" style="float: right;">
-							<a href="login.html" style="text-decoration: none;color: #111;">already have an account?</a>
+							<a href="login.php" style="text-decoration: none;color: #111;">already have an account?</a>
 						</div><div style="clear:both;"></div>
 					<button type="submit" name="signup_submit">Sign Up
 						<i class="zmdi zmdi-arrow-right"></i>
@@ -58,7 +58,7 @@
             confirm_password.onkeyup = validatePassword;
           </script>
 				</form>
-			
+
 			</div>
 		</div>
 	</body>

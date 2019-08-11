@@ -4,6 +4,7 @@ $title = "E-Veil";
 $output = str_replace('%TITLE%', $title, $output);
 echo $output;
 
+
 $server_name = "localhost";
 $server_password = "";
 $server_username = "root";
@@ -19,7 +20,7 @@ if( $conn->connect_error ){
 
 //mysql_select_db($tabe_name,$conn);
 
-$sql="SELECT * FROM email_table";
+$sql="SELECT * FROM email_table WHERE mode='receive'";
 
 $data=mysqli_query($conn,$sql);
 ?>
@@ -53,10 +54,10 @@ $data=mysqli_query($conn,$sql);
           <?php
           while($record=mysqli_fetch_array($data)){
             echo  '<tr>
-              <td>'. $record["mode"] .'</td>
-              <td>'. $record["message"] .'</td>
               <td>'. $record["from_"] .'</td>
+              <td>'. $record["message"] .'</td>
               <td>'. $record["date"] .'</td>
+              <td>'. $record["mode"] .'</td>
             </tr>';
           }
           ?>
