@@ -128,7 +128,10 @@
                   </div>
                     <div class="col-md-4" style="margin-left:4%;">
                         <div class="profile-img">
-                            <img src="img/user.png" alt=""/>
+                            <?php
+                                $pic_src='./profile_pic/'.$_SESSION['pro_pic'];
+                                echo '<img src="'.$pic_src.'" alt="pro_pic">';
+                            ?>
                         </div>
                     </div>
                 </div>

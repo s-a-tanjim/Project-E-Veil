@@ -47,7 +47,8 @@
             //Hashing password
             $hashpw = password_hash($pw,PASSWORD_DEFAULT);
             //insert user into database
-            $sql="INSERT INTO $table_name ( first_name , last_name , email , pw , p_number ,creation_date ) VALUES ( '$first_name','$last_name','$email','$hashpw','$phone',now())";
+            $pro_pic='default_user.png';
+            $sql="INSERT INTO $table_name ( first_name , last_name , email , pw , p_number ,creation_date,pro_pic ) VALUES ( '$first_name','$last_name','$email','$hashpw','$phone',now(),'$pro_pic')";
             mysqli_query($conn,$sql);
             
             
