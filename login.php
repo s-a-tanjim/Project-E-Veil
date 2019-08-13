@@ -5,7 +5,10 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+
 		<title>Login your account</title>
+		<link rel="icon" href="./img/login.png" type="image/icon type">
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- MATERIAL DESIGN ICONIC FONT -->
@@ -31,7 +34,7 @@
 						<i class="zmdi zmdi-lock"></i>
 					</div>
 					<div class="form-wrapper">
-							<a href="forgetpw.html" style="text-decoration: none;color: #111;">forget password?</a>
+							<a href="forgetpw.php" style="text-decoration: none;color: #111;">forget password?</a>
 							<div style="float: right;"><a href="signup.php" style="text-decoration: none;color: #111;">Create new account</a></div>
 					</div>
 					<button type="submit" name="login_submit">Login

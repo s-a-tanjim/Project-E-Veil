@@ -1,3 +1,9 @@
+<?php
+if(isset($_SESSION['email'])==false){   //Checking Session['email'] is set or not
+  header("Location: ../login.php?login=invalid_action");
+  exit();
+}
+?>
 
 
 <!-- Scroll to Top Button-->

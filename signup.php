@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Create a new account</title>
+		<link rel="icon" href="./img/signup.png" type="image/icon type">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- MATERIAL DESIGN ICONIC FONT -->
