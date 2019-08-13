@@ -4,7 +4,7 @@ if (isset($_POST['update_submit'])) {
   include_once 'db_config.php';
   $table_name = 'user_info';    //The table used in this page
 
-  $flag = 0;
+  $flag = 0;  //To check if field is empty or not
 
   $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
   $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
@@ -175,6 +175,7 @@ if (isset($_POST['update_submit'])) {
     header("Location: ../accountsettings.php?upload=empty_field");
     exit();
   } else {
+
     header("Location: ../accountsettings.php?upload=successful");
     exit();
   }

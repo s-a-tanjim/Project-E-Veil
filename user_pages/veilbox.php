@@ -1,28 +1,33 @@
 <?php
 include_once 'header.php';
 $title = "Veilbox";
-
 $output = str_replace('%TITLE%', $title, $output);
 echo $output; //Outout in title
+
 
 $server_name = "localhost";
 $server_password = "";
 $server_username = "root";
-$db_name = "test";
+$db_name = "project_eveil";
 
 //$table_name="email_table";
 
-$conn = mysqli_connect ( $server_name , $server_username , $server_password , $db_name );
+$conn = mysqli_connect($server_name, $server_username, $server_password, $db_name);
 
-if( $conn->connect_error ){
+if ($conn->connect_error) {
   die("Connection Failed!");
 }
 
 //mysql_select_db($tabe_name,$conn);
+$username = $_SESSION['email'];
+$username = substr($username, 0, -10);
+$sql = "SELECT * FROM " . $username . " WHERE mode='anonymous' AND bin=false";
 
-$sql="SELECT * FROM email_table WHERE mode='anonymous'";
-
-$data=mysqli_query($conn,$sql);
+if ($data = mysqli_query($conn, $sql)) {
+  //success
+} else {
+  die("Connection Failed!");
+}
 ?>
 
 <div id="content-wrapper">

@@ -35,7 +35,7 @@ if(isset($_SESSION['email'])==false){   //Checking Session['email'] is set or no
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="inbox.php"><i class="fab fa-500px"></i>Email</a>
+    <a class="navbar-brand mr-1" href="inbox.php"><i class="fab fa-500px"></i>E-Veil</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -109,7 +109,7 @@ if(isset($_SESSION['email'])==false){   //Checking Session['email'] is set or no
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <a class="dropdown-item" href="./profile.php">Profile</a>
           <a class="dropdown-item" href="./accountsettings.php">Account Settings</a>
-          <a class="dropdown-item" href="../forgetpw.html">Forgot Password</a>
+          <a class="dropdown-item" href="../forgetpw.php">Forgot Password</a>
         </div>
       </li>
     </ul>

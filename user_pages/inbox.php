@@ -8,7 +8,7 @@ echo $output;
 $server_name = "localhost";
 $server_password = "";
 $server_username = "root";
-$db_name = "test";
+$db_name = "project_eveil";
 
 //$table_name="email_table";
 
@@ -19,10 +19,15 @@ if( $conn->connect_error ){
 }
 
 //mysql_select_db($tabe_name,$conn);
+$username=$_SESSION['email'];
+$username=substr($username, 0, -10);
+$sql="SELECT * FROM ".$username." WHERE mode='receive' AND bin=false";
 
-$sql="SELECT * FROM email_table WHERE mode='receive'";
-
-$data=mysqli_query($conn,$sql);
+if($data=mysqli_query($conn,$sql)){
+  //success
+}else{
+  die("Connection Failed!");
+}
 ?>
 
 <div id="content-wrapper">

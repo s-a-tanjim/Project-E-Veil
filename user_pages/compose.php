@@ -222,14 +222,14 @@ color: #e1e6ef;
 <div class="email-app" style="margin-left:5%;margin-top:5%;">
     <main>
         <p class="text-center">New Message</p>
-        <form>
+        <form action="./user_db/db_compose.php" method="POST">
             <div class="form-row mb-3">
                 <label for="to" class="col-2 col-sm-1 col-form-label">To:</label>
                 <div class="col-10 col-sm-11">
-                    <input type="email" class="form-control" id="to" placeholder="Type email">
+                    <input type="email" class="form-control" name="to_user" id="to" placeholder="Type email" require>
                 </div>
             </div>
-            <div class="form-row mb-3">
+           <!-- <div class="form-row mb-3">
                 <label for="cc" class="col-2 col-sm-1 col-form-label">CC:</label>
                 <div class="col-10 col-sm-11">
                     <input type="email" class="form-control" id="cc" placeholder="Type email">
@@ -241,7 +241,7 @@ color: #e1e6ef;
                     <input type="email" class="form-control" id="bcc" placeholder="Type email">
                 </div>
             </div>
-        </form>
+        -->
         <div class="row">
             <div class="col-sm-11 ml-auto">
                 <div class="toolbar" role="toolbar">
@@ -306,14 +306,15 @@ color: #e1e6ef;
                     </div>
                 </div>
                 <div class="form-group mt-4">
-                    <textarea class="form-control" id="message" name="body" rows="12" placeholder="Click here to reply"></textarea>
+                    <textarea class="form-control" id="message" name="message" rows="12" placeholder="Click here to reply" require></textarea>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success" style="min-width:100px;">Send</button>
-                    <button type="submit" class="btn btn-danger" style="min-width:100px;">Send Anonymously</button>
+                    <button type="submit" class="btn btn-success" name="send" style="min-width:100px;">Send</button>
+                    <button type="submit" class="btn btn-danger" name="send_anonymous" style="min-width:100px;">Send Anonymously</button>
                 </div>
             </div>
         </div>
+        </form>
     </main>
 </div>
 

@@ -6,8 +6,8 @@
 
     $first_name = mysqli_real_escape_string( $conn , $_POST['first_name']);
     $last_name = mysqli_real_escape_string( $conn , $_POST['last_name']);
-    $email = mysqli_real_escape_string( $conn , $_POST['email']);
-    $email = $email."@eveil.com";    // Concat username and @eveil.com
+    $username = mysqli_real_escape_string( $conn , $_POST['email']);
+    $email = $username."@eveil.com";    // Concat username and @eveil.com
     $pw =  mysqli_real_escape_string( $conn , $_POST['password']);
     $phone = mysqli_real_escape_string( $conn , $_POST['phone_number']);
 
@@ -49,11 +49,20 @@
             //insert user into database
             $pro_pic='default_user.png';
             $sql="INSERT INTO $table_name ( first_name , last_name , email , pw , p_number ,creation_date,pro_pic ) VALUES ( '$first_name','$last_name','$email','$hashpw','$phone',now(),'$pro_pic')";
-            mysqli_query($conn,$sql);
-            
-            
-            header("Location: ../login.php?Signup=success");
-            exit();
+            if(mysqli_query($conn,$sql)){
+              
+              $sql="CREATE TABLE ".$username." ( from_ VARCHAR(255) NOT NULL , message VARCHAR(5000) NOT NULL , date DATE NOT NULL , mode VARCHAR(50) NOT NULL , bin BOOLEAN NULL ) ENGINE = InnoDB;";
+              if(mysqli_query($conn,$sql)){
+                header("Location: ../login.php?Signup=success");
+                exit();
+              }else{
+                header("Location: ../login.php?Signup=connection_error_2");
+                exit();
+              }
+            }else{
+              header("Location: ../login.php?Signup=connection_error_1");
+                exit();
+            }
           }
         }
       }
