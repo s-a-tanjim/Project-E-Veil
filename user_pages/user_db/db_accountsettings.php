@@ -25,6 +25,7 @@ if (isset($_POST['update_submit'])) {
       $sql = "UPDATE " . $table_name . " SET first_name='" . $first_name . "' WHERE email='" . $_SESSION['email'] . "'";
       if ($result = mysqli_query($conn, $sql)) {
         //success
+        $_SESSION['first_name'] = $first_name;
       } else {
         //error
         header("Location: ../accountsettings.php?update=database_connection_error");
@@ -42,6 +43,7 @@ if (isset($_POST['update_submit'])) {
       $sql = "UPDATE " . $table_name . " SET last_name='" . $last_name . "' WHERE email='" . $_SESSION['email'] . "'";
       if ($result = mysqli_query($conn, $sql)) {
         //success
+        $_SESSION['last_name'] = $last_name;
       } else {
         //error
         header("Location: ../accountsettings.php?update=database_connection_error");
@@ -58,6 +60,7 @@ if (isset($_POST['update_submit'])) {
       $sql = "UPDATE " . $table_name . " SET p_number='" . $p_number . "' WHERE email='" . $_SESSION['email'] . "'";
       if ($result = mysqli_query($conn, $sql)) {
         //success
+        $_SESSION['p_number'] = $p_number;
       } else {
         //error
         header("Location: ../accountsettings.php?update=database_connection_error");
@@ -75,6 +78,7 @@ if (isset($_POST['update_submit'])) {
       $sql = "UPDATE " . $table_name . " SET city='" . $city . "' WHERE email='" . $_SESSION['email'] . "'";
       if ($result = mysqli_query($conn, $sql)) {
         //success
+        $_SESSION['city'] =$city; 
       } else {
         //error
         header("Location: ../accountsettings.php?update=database_connection_error");
@@ -92,6 +96,7 @@ if (isset($_POST['update_submit'])) {
       $sql = "UPDATE " . $table_name . " SET country='" . $country . "' WHERE email='" . $_SESSION['email'] . "'";
       if ($result = mysqli_query($conn, $sql)) {
         //success
+        $_SESSION['country'] =$country; 
       } else {
         //error
         header("Location: ../accountsettings.php?update=database_connection_error");
@@ -108,6 +113,7 @@ if (isset($_POST['update_submit'])) {
       $sql = "UPDATE " . $table_name . " SET postal_code='" . $postal_code . "' WHERE email='" . $_SESSION['email'] . "'";
       if ($result = mysqli_query($conn, $sql)) {
         //success
+        $_SESSION['postal_code'] = $postal_code;
       } else {
         //error
         header("Location: ../accountsettings.php?update=database_connection_error");
@@ -152,6 +158,7 @@ if (isset($_POST['update_submit'])) {
           $sql = "UPDATE " . $table_name . " SET pro_pic='" . $pic_name_new . "' WHERE email='" . $_SESSION['email'] . "'";
           if ($result = mysqli_query($conn, $sql)) {
             //success
+            $_SESSION['pro_pic'] = $pic_name_new;
           } else {
             //error
             header("Location: ../accountsettings.php?update=database_connection_error");
