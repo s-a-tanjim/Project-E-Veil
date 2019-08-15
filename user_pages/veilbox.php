@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['email'])==false){   //Checking Session['email'] is set or not
+if (isset($_SESSION['email']) == false) {   //Checking Session['email'] is set or not
   header("Location: ../login.php?login=invalid_action");
   exit();
 }
@@ -15,10 +15,10 @@ if(isset($_SESSION['email'])==false){   //Checking Session['email'] is set or no
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  
+
   <title>Veilbox</title>
   <link rel="icon" href="./img/anonymous-message.png" type="image/icon type">
-  
+
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
@@ -60,50 +60,55 @@ if ($data = mysqli_query($conn, $sql)) {
 
 <div id="content-wrapper">
   <div class="container-fluid">
-<div class="card mb-3">
-  <div class="card-header">
-    <i class="fas fa-table"></i>
-    Inbox</div>
-  <div class="card-body">
-    <div class="table-responsive">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-        <thead>
-          <tr>
-            <th>From</th>
-            <th>Email</th>
-            <th>Received date</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tfoot>
-          <tr>
-            <th>From</th>
-            <th>Email</th>
-            <th>Received date</th>
-            <th>Action</th>
-          </tr>
-        </tfoot>
-        <tbody>
-          <?php
-          while($record=mysqli_fetch_array($data)){
-            echo  '<tr>
-              <td>'. $record["from_"] .'</td>
-              <td>'. $record["message"] .'</td>
-              <td>'. $record["date"] .'</td>
-              <td>'. $record["mode"] .'</td>
-            </tr>';
-          }
-          ?>
-        </tbody>
-      </table>
+    <div class="card mb-3">
+      <div class="card-header">
+        <i class="fas fa-table"></i>
+        Inbox</div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>From</th>
+                <th>Email</th>
+                <th>Received date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th>From</th>
+                <th>Email</th>
+                <th>Received date</th>
+                <th>Action</th>
+              </tr>
+            </tfoot>
+            <tbody>
+              <?php
+              while ($record = mysqli_fetch_array($data)) {
+                $_SESSION['from_'] = $record["from_"];
+                $_SESSION['message'] = $record["message"];
+                $_SESSION['date'] = $record["date"];
+                $_SESSION['mode'] = $record["mode"];
+                $_SESSION['veilbox'] = 1;
+                echo  '<tr>
+                <td>' . $record["from_"] . '</td>
+                <td>' . $record["message"] . '</td>
+                <td>' . $record["date"] . '</td>
+                <td><a href="user_db/db_binEmail.php"><i class="far fa-trash-alt"></i></a></td>
+                </tr>';
+              }
+              ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card-footer small text-muted">Updated today at <?php echo date("h:i:sa"); ?></div>
     </div>
   </div>
-  <div class="card-footer small text-muted">Updated today at <?php echo date("h:i:sa"); ?></div>
-</div>
-</div>
 </div>
 
 
 <?php
-  include_once 'footer.php';
+include_once 'footer.php';
 ?>

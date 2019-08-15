@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['email'])==false){   //Checking Session['email'] is set or not
+if (isset($_SESSION['email']) == false) {   //Checking Session['email'] is set or not
   header("Location: ../login.php?login=invalid_action");
   exit();
 }
@@ -15,10 +15,10 @@ if(isset($_SESSION['email'])==false){   //Checking Session['email'] is set or no
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  
+
   <title>Sent email</title>
   <link rel="icon" href="./img/send.png" type="image/icon type">
-  
+
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
@@ -87,12 +87,17 @@ if ($data = mysqli_query($conn, $sql)) {
             <tbody>
               <?php
               while ($record = mysqli_fetch_array($data)) {
+                $_SESSION['from_'] = $record["from_"];
+                $_SESSION['message'] = $record["message"];
+                $_SESSION['date'] = $record["date"];
+                $_SESSION['mode'] = $record["mode"];
+                $_SESSION['outbox'] = 1;
                 echo  '<tr>
               <td>' . $record["from_"] . '</td>
               <td>' . $record["message"] . '</td>
               <td>' . $record["date"] . '</td>
-              <td>' . $record["mode"] . '</td>
-            </tr>';
+              <td><a href="user_db/db_binEmail.php"><i class="far fa-trash-alt"></i></a></td>
+              </tr>';
               }
               ?>
             </tbody>

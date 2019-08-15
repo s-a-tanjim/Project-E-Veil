@@ -66,8 +66,8 @@ if($data=mysqli_query($conn,$sql)){
     Inbox</div>
   <div class="card-body">
     <div class="table-responsive">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-        <thead>
+      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">  
+      <thead>
           <tr>
             <th>From</th>
             <th>Email</th>
@@ -86,11 +86,16 @@ if($data=mysqli_query($conn,$sql)){
         <tbody>
           <?php
           while($record=mysqli_fetch_array($data)){
+            $_SESSION['from_']=$record["from_"];
+            $_SESSION['message']=$record["message"];
+            $_SESSION['date']=$record["date"];
+            $_SESSION['mode']=$record["mode"];
+            $_SESSION['inbox']=1;
             echo  '<tr>
               <td>'. $record["from_"] .'</td>
               <td>'. $record["message"] .'</td>
               <td>'. $record["date"] .'</td>
-              <td>'. $record["mode"] .'</td>
+              <td><a href="user_db/db_binEmail.php"><i class="far fa-trash-alt"></i></a></td>
             </tr>';
           }
           ?>
