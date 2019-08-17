@@ -10,6 +10,7 @@
   <link href="user_pages/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
   <title>Welcome to E-Veil</title>
+  <link rel="icon" href="./img/indexicon.png" type="image/icon type">
 
 
   <style media="screen">
@@ -46,10 +47,10 @@
               <a class="nav-link" href="signup.php" style="letter-spacing:1px;">Sign Up</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#" style="letter-spacing:1px;">About</a>
+              <a class="nav-link" href="about.php" style="letter-spacing:1px;">About</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#" style="letter-spacing:1px;">Contact</a>
+              <a class="nav-link" href="contact.php" style="letter-spacing:1px;">Contact</a>
           </li>
         </ul>
       </div>
@@ -110,7 +111,7 @@
     </section>
 
 
-    <div class="parallox" style="background-image: url(./img/parallox1.jpg)"></div>
+    <div class="parallox" style="background-image: url(./img/parallox1.png);height:400px;"></div>
 
 
     <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
