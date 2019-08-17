@@ -64,7 +64,7 @@ if ($data = mysqli_query($conn, $sql)) {
     <div class="card mb-3">
       <div class="card-header">
         <i class="fas fa-table"></i>
-        Inbox</div>
+        Deleted Emails</div>
       <div class="card-body">
         <div class="table-responsive">
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -95,7 +95,7 @@ if ($data = mysqli_query($conn, $sql)) {
                 <td>' . $record["from_"] . '</td>
                 <td>' . $record["message"] . '</td>
                 <td>' . $record["date"] . '</td>
-                <td style="display: flex;justify-content:space-around;"><a href="user_db/db_recoverEmail.php" ><i class="fas fa-undo"></i></a>  <a href="#"><i class="far fa-trash-alt"></i></a></td>
+                <td style="display: flex;justify-content:space-around;"><a href="user_db/db_recoverEmail.php?id='.$record["id"].'"><i class="fas fa-undo"></i></a>  <a href="user_db/db_deleteEmail.php?id='.$record["id"].'"><i class="far fa-trash-alt"></i></a></td>
                 </tr>';
               }
               ?>

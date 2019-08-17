@@ -9,7 +9,7 @@ if(isset($_SESSION['email'])==false){   //Checking Session['email'] is set or no
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-    <a class="navbar-brand mr-1" href="inbox.php"><i class="fas fa-user-secret" style="margin-right:6px;"></i>E-Veil</a>
+    <a class="navbar-brand mr-1" href="inbox.php" style="letter-spacing:2px;"><i class="fas fa-user-secret" style="margin-right:6px;"></i>E-Veil</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>

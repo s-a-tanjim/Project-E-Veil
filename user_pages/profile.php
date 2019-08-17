@@ -350,7 +350,7 @@ include_once 'header.php';
                             <label>Sent email</label>
                         </div>
                         <div class="col-md-6">
-                            <p>count</p>
+                            <p><?php echo $_SESSION['sent_mail_count']; ?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -358,7 +358,7 @@ include_once 'header.php';
                             <label>Received mail</label>
                         </div>
                         <div class="col-md-6">
-                            <p>count</p>
+                            <p><?php echo $_SESSION['received_mail_count']; ?></p>
                         </div>
                     </div>
 

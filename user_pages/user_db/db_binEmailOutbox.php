@@ -7,14 +7,14 @@ if (isset($_SESSION['email']) == false) {   //Checking Session['email'] is set o
 
 $message_id = $_GET['id'];
 $username = substr($_SESSION['email'], 0, -10);
-$sql = "DELETE FROM " . $username . " WHERE id = '" . $message_id . "';";
+$sql = "UPDATE " . $username . " SET bin='1' WHERE id = '" . $message_id . "';";
 
 if ($result = mysqli_query($conn, $sql)) {
   //success
-  header("Location: ../bin.php?delete=deleted_succesfully");
+  header("Location: ../outbox.php?delete=moved_to_bin");
   exit();
 } else {
   //error
-  header("Location: ../bin.php?delete=database_connection_error");
+  header("Location: ../outbox.php?delete=database_connection_error");
   exit();
 }

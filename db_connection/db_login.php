@@ -47,6 +47,8 @@
           $_SESSION['country']=$row['country'];
           $_SESSION['city']=$row['city'];
           $_SESSION['postal_code']=$row['postal_code'];
+          $_SESSION['sent_mail_count']=$row['sent_mail_count'];
+          $_SESSION['received_mail_count']=$row['received_mail_count'];
           
           header("Location: ../user_pages/inbox.php?login=LoginSuccess");
           exit();

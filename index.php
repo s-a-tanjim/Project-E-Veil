@@ -31,25 +31,25 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.php"><i class="fas fa-user-secret" style="margin-right:6px;"></i>E - Veil</a>
+      <a class="navbar-brand" href="index.php" style="letter-spacing:2px;"><i class="fas fa-user-secret" style="margin-right:6px;"></i>E - Veil</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="login.php">Login
+            <a class="nav-link" href="login.php" style="letter-spacing:1px;">Login
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="signup.php">Sign Up</a>
+              <a class="nav-link" href="signup.php" style="letter-spacing:1px;">Sign Up</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="#" style="letter-spacing:1px;">About</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link" href="#" style="letter-spacing:1px;">Contact</a>
           </li>
         </ul>
       </div>
@@ -115,7 +115,7 @@
 
     <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
       <div class="container text-center">
-        <small>Copyright &copy; E-Veil</small>
+        <small style="letter-spacing:1px;">Copyright &copy; E-Veil</small>
       </div>
     </footer>
 

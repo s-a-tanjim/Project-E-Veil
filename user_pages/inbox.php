@@ -22,6 +22,9 @@ if(isset($_SESSION['email'])==false){   //Checking Session['email'] is set or no
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
+  <!-- For Modal -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
   <!-- Page level plugin CSS-->
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
@@ -90,14 +93,13 @@ if($data=mysqli_query($conn,$sql)){
             $_SESSION['message']=$record["message"];
             $_SESSION['date']=$record["date"];
             $_SESSION['mode']=$record["mode"];
-            $_SESSION['inbox']=1;
             echo  '<tr>
               <td>'. $record["from_"] .'</td>
               <td>'. $record["message"] .'</td>
               <td>'. $record["date"] .'</td>
-              <td><a href="user_db/db_binEmail.php"><i class="far fa-trash-alt"></i></a></td>
+              <td><a href="user_db/db_binEmailinbox.php?id='.$record["id"].'"><i class="far fa-trash-alt"></i></a></td>
             </tr>';
-          }
+          }//<td> <div onclick="'."document.getElementById('detailsEmail').style.display='block'".'">'. $record["message"] .'</div></td>
           ?>
         </tbody>
       </table>
@@ -107,7 +109,24 @@ if($data=mysqli_query($conn,$sql)){
 </div>
 </div>
 </div>
-
+<!-- Modal -->
+<!--<div id="detailsEmail" class="w3-modal">
+    <div class="w3-modal-content w3-animate-zoom w3-card-4">
+      <header class="w3-container w3-teal"> 
+        <span onclick="document.getElementById('detailsEmail').style.display='none'" 
+        class="w3-button w3-display-topright">&times;</span>
+        <h2>Modal Header</h2>
+      </header>
+      <div class="w3-container">
+        <p><?php //echo $record["message"]; ?></p>
+        
+      </div>
+      <footer class="w3-container w3-teal">
+        <p><?php //echo $_SESSION["date"]; ?></p>
+      </footer>
+    </div>
+  </div>
+-->
 
 <?php
   include_once 'footer.php';

@@ -63,7 +63,7 @@ if ($data = mysqli_query($conn, $sql)) {
     <div class="card mb-3">
       <div class="card-header">
         <i class="fas fa-table"></i>
-        Inbox</div>
+        Veilbox</div>
       <div class="card-body">
         <div class="table-responsive">
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -90,12 +90,11 @@ if ($data = mysqli_query($conn, $sql)) {
                 $_SESSION['message'] = $record["message"];
                 $_SESSION['date'] = $record["date"];
                 $_SESSION['mode'] = $record["mode"];
-                $_SESSION['veilbox'] = 1;
                 echo  '<tr>
                 <td>' . $record["from_"] . '</td>
                 <td>' . $record["message"] . '</td>
                 <td>' . $record["date"] . '</td>
-                <td><a href="user_db/db_binEmail.php"><i class="far fa-trash-alt"></i></a></td>
+                <td><a href="user_db/db_binEmailVeilbox.php?id='.$record["id"].'""><i class="far fa-trash-alt"></i></a></td>
                 </tr>';
               }
               ?>
