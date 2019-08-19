@@ -49,7 +49,7 @@ if ($conn->connect_error) {
 //mysql_select_db($tabe_name,$conn);
 $username = $_SESSION['email'];
 $username = substr($username, 0, -10);
-$sql = "SELECT * FROM " . $username . " WHERE mode='anonymous' AND bin=false";
+$sql = "SELECT AES_DECRYPT(message,'eveil'),from_,id,date FROM " . $username . " WHERE mode='anonymous' AND bin=false";
 
 if ($data = mysqli_query($conn, $sql)) {
   //success
@@ -86,15 +86,11 @@ if ($data = mysqli_query($conn, $sql)) {
             <tbody>
               <?php
               while ($record = mysqli_fetch_array($data)) {
-                $_SESSION['from_'] = $record["from_"];
-                $_SESSION['message'] = $record["message"];
-                $_SESSION['date'] = $record["date"];
-                $_SESSION['mode'] = $record["mode"];
                 echo  '<tr>
                 <td>' . $record["from_"] . '</td>
-                <td>' . $record["message"] . '</td>
+                <td>' . $record["AES_DECRYPT(message,'eveil')"] . '</td>
                 <td>' . $record["date"] . '</td>
-                <td><a href="user_db/db_binEmailVeilbox.php?id='.$record["id"].'""><i class="far fa-trash-alt"></i></a></td>
+                <td><a href="user_db/db_binEmailVeilbox.php?id=' . $record["id"] . '""><i class="far fa-trash-alt"></i></a></td>
                 </tr>';
               }
               ?>

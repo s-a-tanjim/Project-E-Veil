@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['email'])==false){   //Checking Session['email'] is set or not
+if (isset($_SESSION['email']) == false) {   //Checking Session['email'] is set or not
   header("Location: ../login.php?login=invalid_action");
   exit();
 }
@@ -15,10 +15,10 @@ if(isset($_SESSION['email'])==false){   //Checking Session['email'] is set or no
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  
+
   <title>E-Veil</title>
   <link rel="icon" href="./img/inbox.png" type="image/icon type">
-  
+
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
@@ -43,71 +43,67 @@ $db_name = "project_eveil";
 
 //$table_name="email_table";
 
-$conn = mysqli_connect ( $server_name , $server_username , $server_password , $db_name );
+$conn = mysqli_connect($server_name, $server_username, $server_password, $db_name);
 
-if( $conn->connect_error ){
+if ($conn->connect_error) {
   die("Connection Failed!");
 }
 
 //mysql_select_db($tabe_name,$conn);
-$username=$_SESSION['email'];
-$username=substr($username, 0, -10);
-$sql="SELECT * FROM ".$username." WHERE mode='receive' AND bin=false";
+$username = $_SESSION['email'];
+$username = substr($username, 0, -10);
+$sql = "SELECT AES_DECRYPT(message,'eveil'),from_,id,date FROM " . $username . " WHERE mode='receive' AND bin=false";
 
-if($data=mysqli_query($conn,$sql)){
+if ($data = mysqli_query($conn, $sql)) {
   //success
-}else{
+} else {
   die("Connection Failed!");
 }
 ?>
 
 <div id="content-wrapper">
   <div class="container-fluid">
-<div class="card mb-3">
-  <div class="card-header">
-    <i class="fas fa-table"></i>
-    Inbox</div>
-  <div class="card-body">
-    <div class="table-responsive">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">  
-      <thead>
-          <tr>
-            <th>From</th>
-            <th>Email</th>
-            <th>Received date</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tfoot>
-          <tr>
-            <th>From</th>
-            <th>Email</th>
-            <th>Received date</th>
-            <th>Action</th>
-          </tr>
-        </tfoot>
-        <tbody>
-          <?php
-          while($record=mysqli_fetch_array($data)){
-            $_SESSION['from_']=$record["from_"];
-            $_SESSION['message']=$record["message"];
-            $_SESSION['date']=$record["date"];
-            $_SESSION['mode']=$record["mode"];
-            echo  '<tr>
-              <td>'. $record["from_"] .'</td>
-              <td>'. $record["message"] .'</td>
-              <td>'. $record["date"] .'</td>
-              <td><a href="user_db/db_binEmailinbox.php?id='.$record["id"].'"><i class="far fa-trash-alt"></i></a></td>
+    <div class="card mb-3">
+      <div class="card-header">
+        <i class="fas fa-table"></i>
+        Inbox</div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>From</th>
+                <th>Email</th>
+                <th>Received date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th>From</th>
+                <th>Email</th>
+                <th>Received date</th>
+                <th>Action</th>
+              </tr>
+            </tfoot>
+            <tbody>
+              <?php
+              while ($record = mysqli_fetch_array($data)) {
+                echo  '<tr>
+              <td>' . $record["from_"] . '</td>
+              <td>' . $record["AES_DECRYPT(message,'eveil')"] . '</td>
+              <td>' . $record["date"] . '</td>
+              <td><a href="user_db/db_binEmailinbox.php?id=' . $record["id"] . '"><i class="far fa-trash-alt"></i></a></td>
             </tr>';
-          }//<td> <div onclick="'."document.getElementById('detailsEmail').style.display='block'".'">'. $record["message"] .'</div></td>
-          ?>
-        </tbody>
-      </table>
+              } //<td> <div onclick="'."document.getElementById('detailsEmail').style.display='block'".'">'. $record["message"] .'</div></td>
+              ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card-footer small text-muted">Updated today at <?php echo date("h:i:sa"); ?></div>
     </div>
   </div>
-  <div class="card-footer small text-muted">Updated today at <?php echo date("h:i:sa"); ?></div>
-</div>
-</div>
 </div>
 <!-- Modal -->
 <!--<div id="detailsEmail" class="w3-modal">
@@ -118,16 +114,18 @@ if($data=mysqli_query($conn,$sql)){
         <h2>Modal Header</h2>
       </header>
       <div class="w3-container">
-        <p><?php //echo $record["message"]; ?></p>
+        <p><?php //echo $record["message"]; 
+            ?></p>
         
       </div>
       <footer class="w3-container w3-teal">
-        <p><?php //echo $_SESSION["date"]; ?></p>
+        <p><?php //echo $_SESSION["date"]; 
+            ?></p>
       </footer>
     </div>
   </div>
 -->
 
 <?php
-  include_once 'footer.php';
+include_once 'footer.php';
 ?>

@@ -76,7 +76,7 @@
           <div class="carousel-item" style="background-image: url('img/encrypt2.jpg')">
             <div class="carousel-caption d-none d-md-block">
               <h2 class="display-4">Encrypt Your Mail</h2>
-              <p class="lead">Use E2E Encrypted technology to encrypt your mail</p>
+              <p class="lead">Use Advanced Encrypted Standard to encrypt your email</p>
             </div>
           </div>
           <!-- Slide Three - Set the background image for this slide in the line below -->
@@ -103,7 +103,7 @@
       <div class="container">
         <h1 class="display-4">Project E-Veil</h1>
         <p class="lead">What does an undercover agent need the most? What if you want to pass a very important information to the authority?
-          E2E Encrypted mail service is the best solution for him.
+          AES Encrypted email service is the best solution for him.
           And what if revealing your identity can be a life risk for you? Being anonymous maybe a good choice for you.
           Our aim is to create a communication platform where you can share information safely by hiding your identity!
         </p>

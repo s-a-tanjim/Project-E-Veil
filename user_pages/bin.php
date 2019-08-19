@@ -50,7 +50,7 @@ if ($conn->connect_error) {
 //mysql_select_db($tabe_name,$conn);
 $username = $_SESSION['email'];
 $username = substr($username, 0, -10);
-$sql = "SELECT * FROM " . $username . " WHERE bin=true";
+$sql = "SELECT AES_DECRYPT(message,'eveil'),from_,id,date FROM " . $username . " WHERE bin=true";
 
 if ($data = mysqli_query($conn, $sql)) {
   //success
@@ -87,15 +87,11 @@ if ($data = mysqli_query($conn, $sql)) {
             <tbody>
               <?php
               while ($record = mysqli_fetch_array($data)) {
-                $_SESSION['from_'] = $record["from_"];
-                $_SESSION['message'] = $record["message"];
-                $_SESSION['date'] = $record["date"];
-                $_SESSION['mode'] = $record["mode"];
                 echo  '<tr>
                 <td>' . $record["from_"] . '</td>
-                <td>' . $record["message"] . '</td>
+                <td>' . $record["AES_DECRYPT(message,'eveil')"] . '</td>
                 <td>' . $record["date"] . '</td>
-                <td style="display: flex;justify-content:space-around;"><a href="user_db/db_recoverEmail.php?id='.$record["id"].'"><i class="fas fa-undo"></i></a>  <a href="user_db/db_deleteEmail.php?id='.$record["id"].'"><i class="far fa-trash-alt"></i></a></td>
+                <td style="display: flex;justify-content:space-around;"><a href="user_db/db_recoverEmail.php?id=' . $record["id"] . '"><i class="fas fa-undo"></i></a>  <a href="user_db/db_deleteEmail.php?id=' . $record["id"] . '"><i class="far fa-trash-alt"></i></a></td>
                 </tr>';
               }
               ?>

@@ -51,7 +51,7 @@
             $sql="INSERT INTO $table_name ( first_name , last_name , email , pw , p_number ,creation_date,pro_pic, sent_mail_count , 	received_mail_count	 ) VALUES ( '$first_name','$last_name','$email','$hashpw','$phone',now(),'$pro_pic','0','0')";
             if(mysqli_query($conn,$sql)){
               
-              $sql="CREATE TABLE ".$username." ( id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, from_ VARCHAR(255) NOT NULL , message VARCHAR(5000) NOT NULL , date DATE NOT NULL DEFAULT CURRENT_TIMESTAMP, mode VARCHAR(20) NOT NULL , bin BOOLEAN NOT NULL DEFAULT FALSE) ENGINE = InnoDB;";
+              $sql="CREATE TABLE ".$username." ( id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY, from_ VARCHAR(255) NOT NULL , message VARBINARY(5000) NOT NULL , date DATE NOT NULL DEFAULT CURRENT_TIMESTAMP, mode VARCHAR(20) NOT NULL , bin BOOLEAN NOT NULL DEFAULT FALSE) ENGINE = InnoDB;";
               if(mysqli_query($conn,$sql)){
                 header("Location: ../login.php?Signup=success");
                 exit();
