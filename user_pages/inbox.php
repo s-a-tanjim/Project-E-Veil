@@ -91,7 +91,7 @@ if ($data = mysqli_query($conn, $sql)) {
               while ($record = mysqli_fetch_array($data)) {
                 echo  '<tr>
               <td>' . $record["from_"] . '</td>
-              <td>' . $record["AES_DECRYPT(message,'eveil')"] . '</td>
+              <td><a style="color:black;cursor:default;" href="message.php?id='.$record["id"].'">' . $record["AES_DECRYPT(message,'eveil')"] . '</a></td>
               <td>' . $record["date"] . '</td>
               <td><a href="user_db/db_binEmailinbox.php?id=' . $record["id"] . '"><i class="far fa-trash-alt"></i></a></td>
             </tr>';
