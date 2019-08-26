@@ -24,7 +24,7 @@ if (isset($_POST['send'])) {      //For Send
       if ($resultCheck > 0) {
         //ready to send email
         $to_user_name = substr($to_user, 0, -10);
-        $sql = "INSERT INTO " . $to_user_name . " (from_,message,date,mode,bin) VALUE ('" . $_SESSION['email'] . "',AES_ENCRYPT('".$message."', 'eveil') ,now(),'receive','0')"; //Store in receiver table
+        $sql = "INSERT INTO " . $to_user_name . " (from_,message,date,mode,bin,seen) VALUE ('" . $_SESSION['email'] . "',AES_ENCRYPT('".$message."', 'eveil') ,now(),'receive','0','0')"; //Store in receiver table
         if ($result = mysqli_query($conn, $sql)) {
           $sql = "SELECT received_mail_count FROM user_info WHERE email = '".$to_user."' LIMIT 1";
           $res=mysqli_query($conn, $sql);  //Get Received mail count number
@@ -83,7 +83,7 @@ if (isset($_POST['send'])) {      //For Send
       if ($resultCheck > 0) {
         //ready to send email
         $to_user_name = substr($to_user, 0, -10);
-        $sql = "INSERT INTO " . $to_user_name . " (from_,message,date,mode,bin) VALUE ('anonymous@eveil.com', AES_ENCRYPT('".$message."', 'eveil') ,now(),'anonymous','0')"; //Store in receiver table
+        $sql = "INSERT INTO " . $to_user_name . " (from_,message,date,mode,bin,seen) VALUE ('anonymous@eveil.com', AES_ENCRYPT('".$message."', 'eveil') ,now(),'anonymous','0','0')"; //Store in receiver table
         if ($result = mysqli_query($conn, $sql)) {
           $sql = "SELECT received_mail_count FROM user_info WHERE email = '".$to_user."' LIMIT 1";
           $res=mysqli_query($conn, $sql);  //Get Received mail count number

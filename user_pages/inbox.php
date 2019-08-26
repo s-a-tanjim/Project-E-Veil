@@ -52,7 +52,7 @@ if ($conn->connect_error) {
 //mysql_select_db($tabe_name,$conn);
 $username = $_SESSION['email'];
 $username = substr($username, 0, -10);
-$sql = "SELECT AES_DECRYPT(message,'eveil'),from_,id,date FROM " . $username . " WHERE mode='receive' AND bin=false";
+$sql = "SELECT AES_DECRYPT(message,'eveil'),from_,id,date,seen FROM " . $username . " WHERE mode='receive' AND bin=false";
 
 if ($data = mysqli_query($conn, $sql)) {
   //success
@@ -89,9 +89,13 @@ if ($data = mysqli_query($conn, $sql)) {
             <tbody>
               <?php
               while ($record = mysqli_fetch_array($data)) {
-                echo  '<tr>
-              <td>' . $record["from_"] . '</td>
-              <td><a style="color:black;cursor:default;" href="message.php?id='.$record["id"].'">' . $record["AES_DECRYPT(message,'eveil')"] . '</a></td>
+                if ($record['seen'] == false) {
+                  echo '<tr style="background-color:rgba(0,0,0,0.2);">';
+                } else {
+                  echo '<tr>';
+                }
+                echo '<td>' . $record["from_"] . '</td>
+              <td><a style="color:black;cursor:default;" href="message.php?id=' . $record["id"] . '&prev_page=index">' . $record["AES_DECRYPT(message,'eveil')"] . '</a></td>
               <td>' . $record["date"] . '</td>
               <td><a href="user_db/db_binEmailinbox.php?id=' . $record["id"] . '"><i class="far fa-trash-alt"></i></a></td>
             </tr>';

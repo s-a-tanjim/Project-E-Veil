@@ -44,7 +44,8 @@ if (isset($_SESSION['email']) == false) {   //Checking Session['email'] is set o
       border: 1px solid black;
       font-size: 20px;
     }
-    .message{
+
+    .message {
       width: 100%;
       padding: 5px 10px;
       border: 1px solid black;
@@ -78,6 +79,8 @@ $sql = "SELECT AES_DECRYPT(message,'eveil'),from_,date FROM " . $username . " WH
 
 if ($data = mysqli_query($conn, $sql)) {
   //success
+  $sql = "UPDATE " . $username . " SET seen='1' WHERE id='" . $message_id . "';";
+  mysqli_query($conn, $sql);    //Make email as read
   $record = mysqli_fetch_array($data);
   $message = $record["AES_DECRYPT(message,'eveil')"];
   $sql = "SELECT pro_pic FROM user_info WHERE email='" . $record['from_'] . "';";
@@ -95,7 +98,11 @@ if ($data = mysqli_query($conn, $sql)) {
 
 <div class="main">
   <div class="from">
-    From: <img src="<?php echo $from_pro_pic; ?>" width="20px" height="20px" style="border-radius:50%;"> <?php echo $record['from_']; ?>
+    <?php if ($_GET['prev_page'] === 'index' || $_GET['prev_page'] === 'veilbox') {
+      echo 'From: ';
+    } else {
+      echo 'To: ';
+    } ?><img src="<?php echo $from_pro_pic; ?>" width="20px" height="20px" style="border-radius:50%;"> <?php echo $record['from_']; ?>
   </div>
   <div class="message">
     <p style="font-size:20px;">Message:</p>
