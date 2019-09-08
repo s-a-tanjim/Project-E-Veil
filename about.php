@@ -11,7 +11,7 @@
   <link href="user_pages/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
   <title>About: E-Veil</title>
-
+  <link rel="icon" href="./img/indexicon.png" type="image/icon type">
 
   <style media="screen">
     html {
@@ -51,7 +51,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.php" style="letter-spacing:2px;"><i class="fas fa-user-secret" style="margin-right:6px;"></i>E - Veil</a>
+      <a class="navbar-brand" href="index.php" style="letter-spacing:3px;"><i class="fas fa-user-secret" style="margin-right:6px;"></i>E-Veil</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -77,7 +77,7 @@
   </nav>
 
   <section class="py-5">
-    <div class="container">
+    <div class="container"><br><br><br>
       <h1 class="display-4">About : E- Veil</h1>
       <p class="lead">It's an email service where you can share messages. Even you can share messages hiding your identity.
       </p><br><br><br><br>

@@ -74,8 +74,9 @@ if ($conn->connect_error) {
 //mysql_select_db($tabe_name,$conn);
 $username = $_SESSION['email'];
 $username = substr($username, 0, -10);
-$message_id = $_GET['id'];
-$sql = "SELECT AES_DECRYPT(message,'eveil'),from_,date FROM " . $username . " WHERE id=" . $message_id . ";";
+$message_id = mysqli_real_escape_string( $conn ,$_GET['id']);
+
+$sql = "SELECT AES_DECRYPT(message,'eveil'),from_,date FROM " . $username . " WHERE id='" . $message_id . "';";
 
 if ($data = mysqli_query($conn, $sql)) {
   //success
