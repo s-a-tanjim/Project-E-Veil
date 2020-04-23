@@ -1,10 +1,27 @@
 # project-eveil
+Find full project [here](http://e-veil.web.app/)
+
 
 ## Project setup
 ```
 npm install
 ```
 * Add firebaseConfig.js file in src directory and add the firebase api keys there.
+Example:
+
+Filename: src/firebaseConfig.js
+File Content:
+```
+export default{
+  apiKey: "#",
+  authDomain: "#",
+  databaseURL: "#",
+  projectId: "#",
+  storageBucket: "#",
+  messagingSenderId: "#",
+  appId: "#"
+}
+```
 
 ### Compiles and hot-reloads for development
 ```
@@ -20,9 +37,6 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Dependencies
 1. vue-router
