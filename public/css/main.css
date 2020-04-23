@@ -1,0 +1,149 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.wrapper-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.body-container {
+  margin: 30px 50px;
+  width: 100%;
+}
+
+@media screen and (max-width: 991px) {
+  .body-container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .body-container {
+    padding-right: 7px;
+    padding-left: 7px;
+  }
+}
+
+/* Button */
+.eveilbtn {
+  background-color: #111;
+  color: aliceblue;
+  border-radius: 2px;
+  border: 1px solid #111;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.2s;
+  padding: 10px 20px;
+}
+
+.eveilbtn:hover {
+  background-color: aliceblue;
+  color: #111;
+}
+
+.eveilbtn:focus {
+  outline: none;
+}
+
+.evail-submit-button {
+  color: #fff;
+  border-radius: 3px;
+  background-color: #333;
+  border: 1px solid #333;
+  width: 100%;
+  transition: 0.3s all;
+}
+
+.evail-submit-button:hover {
+  background-color: #fff;
+  color: #333;
+}
+
+.msg-delete-btn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 50%;
+  border: none;
+}
+
+.msg-delete-btn:focus {
+  outline: none;
+}
+
+.msg-delete-btn i {
+  font-size: 30px;
+  color: antiquewhite;
+  background-color: #111;
+  border: 1px solid #111;
+  border-radius: 50%;
+  padding: 15px;
+  transition-duration: 0.2s;
+}
+
+.msg-delete-btn i:hover {
+  background-color: antiquewhite;
+  color: #111;
+}
+
+/* Form control */
+
+
+.form-control {
+  border-radius: 0px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #333;
+  padding: 0px;
+}
+
+.form-control:focus,
+.form-control:valid {
+  border-radius: 0px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #8407de;
+  box-shadow: none;
+}
+
+.form-control:focus~label,
+.form-control:valid~label {
+  font-size: 14px;
+  top: -18px !important;
+  color: #111;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group-submit {
+  float: left;
+}
+
+.error-msg {
+  font-size: 80%;
+  color: #ba2937;
+  display: none;
+}
+
+.close:focus {
+  outline: none;
+}
+
+/* Colors */
+
+.success-color {
+  color: #3c763d;
+}
+
+.dark-background {
+  background-color: #1e1e1e;
+}
