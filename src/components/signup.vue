@@ -22,34 +22,25 @@
               style="text-align:center;"
             >Field can't be empty!</div>
           </div>
-          <div class="row">
-            <div class="col-md-6 col-lg-6 col-xl-6">
-              <div class="form-group">
-                <input
-                  type="text"
-                  placeholder="First Name"
-                  class="form-control"
-                  v-model="first_name"
-                  required
-                />
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xl-6">
-              <div class="form-group">
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  class="form-control"
-                  v-model="last_name"
-                  required
-                />
-              </div>
-            </div>
+
+          <div class="form-group">
+            <input
+              type="text"
+              placeholder="Name"
+              class="form-control"
+              v-model="formData.name"
+              required
+            />
           </div>
 
           <div class="form-group">
             <div class="input-group">
-              <input type="text" class="form-control" v-model="username" placeholder="Username" />
+              <input
+                type="text"
+                class="form-control"
+                v-model="formData.username"
+                placeholder="Username"
+              />
               <div class="input-group-prepend">
                 <div class="input-group-text">@eveil.com</div>
               </div>
@@ -62,7 +53,7 @@
               type="tel"
               class="form-control"
               placeholder="Mobile Number"
-              v-model="mobile_no"
+              v-model="formData.mobile_no"
               required
             />
           </div>
@@ -73,7 +64,7 @@
               class="form-control"
               id="signup-password"
               placeholder="Password"
-              v-model="password"
+              v-model="formData.password"
               required
             />
             <div class="error-msg" id="passwordLessThan6">Password is less than 6 digit!</div>
@@ -85,7 +76,7 @@
               class="form-control"
               @change="passwordMatch"
               id="signup-confirmPassword"
-              v-model="confirm_password"
+              v-model="formData.confirm_password"
               placeholder="Confirm Password"
               required
             />
@@ -120,7 +111,6 @@
 </template>
 
 <script>
-import firebase from "firebase";
 export default {
   data: function() {
     return {
@@ -134,22 +124,32 @@ export default {
       email: "",
       password: "",
       confirm_password: "",
-      ref: "user/"
+      formData: {
+        name: "",
+        mobile_no: "",
+        address: "N/A",
+        sent_mail_count: 0,
+        creation_date: "",
+        username: "",
+        email: "",
+        password: "",
+        confirm_password: ""
+      }
     };
   },
   methods: {
     passwordMatch() {
-      if (this.password != this.confirm_password)
+      if (this.formData.password != this.formData.confirm_password)
         this.showError("passwordDidntMatch");
       else this.hideError("passwordDidntMatch");
     },
     signupSubmit(event) {
       event.preventDefault();
       //console.log("signup");
-      this.email = this.username + "@eveil.com";
+      this.formData.email = this.formData.username + "@eveil.com";
       //Create present time
-      var today = new Date();
-      this.creation_date =
+      let today = new Date();
+      this.formData.creation_date =
         today.getDate() +
         "/" +
         (today.getMonth() + 1) +
@@ -157,49 +157,33 @@ export default {
         today.getFullYear();
 
       if (this.verifyInput()) {
-        firebase
-          .auth()
-          .createUserWithEmailAndPassword(this.email, this.password)
-          .then(
-            () => {
-              //alert("account created!", user);
-              this.updateToFirebase();
-              //this.$router.push("/");
-            },
-            err => {
-              alert(err.message);
-            }
-          );
+        this.$store.dispatch("signup", this.formData);
       } else {
         //alert("Invalid Input");
       }
     },
     verifyInput() {
       if (
-        this.first_name == "" ||
-        this.last_name == "" ||
-        this.mobile_no == "" ||
-        this.address == "" ||
-        this.username == ""
+        this.formData.name == "" ||
+        this.formData.mobile_no == "" ||
+        this.formData.address == "" ||
+        this.formData.username == ""
       ) {
         this.showError("emptyError");
         return false;
       } else this.hideError("emptyError");
-      if (this.password.length < 6) {
+      if (this.formData.password.length < 6) {
         this.showError("passwordLessThan6");
         return false;
       } else this.hideError("passwordLessThan6");
-      if (this.password != this.confirm_password) {
+      if (this.formData.password != this.formData.confirm_password) {
         this.showError("passwordDidntMatch");
         return false;
       } else this.hideError("passwordDidntMatch");
       return true;
     },
     updateToFirebase() {
-      this.ref += this.username;
-      var userRef = firebase.database().ref(this.ref);
-      userRef
-        .set({
+      /*{
           first_name: this.first_name,
           last_name: this.last_name,
           email: this.email,
@@ -208,36 +192,18 @@ export default {
           address: "N/A",
           sent_email: 0,
           creation_date: this.creation_date
-        })
-        .then(() => {
-          this.resetData();
-          firebase
-            .auth()
-            .signOut()
-            .then(() => {
-              document.getElementById("signup-modal-close-btn").click();
-              document
-                .getElementById("succesfully-created-account-btn")
-                .click();
-              this.$router.push("/?Signup=Successful").catch(error => {
-                if (error.name != "NavigationDuplicated") {
-                  throw error;
-                }
-              });
-            });
-        });
+        }*/
     },
     resetData() {
-      (this.first_name = ""),
-        (this.last_name = ""),
-        (this.mobile_no = ""),
-        (this.address = "N/A"),
-        (this.sent_mail_count = 0),
-        (this.creation_date = ""),
-        (this.username = ""),
-        (this.email = ""),
-        (this.password = ""),
-        (this.confirm_password = "");
+        (this.formData.name = ""),
+        (this.formData.mobile_no = ""),
+        (this.formData.address = "N/A"),
+        (this.formData.sent_mail_count = 0),
+        (this.formData.creation_date = ""),
+        (this.formData.username = ""),
+        (this.formData.email = ""),
+        (this.formData.password = ""),
+        (this.formData.confirm_password = "");
     },
     showError(id) {
       document.getElementById(id).style.display = "block";

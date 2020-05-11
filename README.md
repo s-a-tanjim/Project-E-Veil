@@ -41,6 +41,8 @@ npm run lint
 ## Dependencies
 1. vue-router
 2. vue-lazyload
+3. Vuex
+4. axios
 3. Bootstrap version: 4.4.1
 4. vue-table-dynamic
 

@@ -53,7 +53,6 @@
 </template>
 
 <script>
-import firebase from "firebase";
 export default {
   data: function() {
     return {
@@ -64,20 +63,7 @@ export default {
   methods: {
     loginSubmit(event) {
       event.preventDefault();
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(this.email, this.password)
-        .then(
-          () => {
-            document.getElementById("login-modal-close-btn").click();
-            this.email = "";
-            this.password = "";
-            this.$router.push("/inbox");
-          },
-          err => {
-            alert(err.message);
-          }
-        );
+      console.log("sigin");
     }
   }
 };

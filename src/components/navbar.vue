@@ -2,7 +2,7 @@
   <div>
     <!-- Navigation -->
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-      <router-link class="navbar-brand mr-1" v-bind:to="'/'" style="letter-spacing:2px;">
+      <router-link class="navbar-brand mr-1" to="/" style="letter-spacing:2px;">
         <i class="fas fa-user-secret" style="margin-right:6px;"></i>E-Veil
       </router-link>
       <!--
@@ -43,7 +43,7 @@
             <i class="fas fa-user-circle fa-fw"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <router-link class="dropdown-item" v-bind:to="'/profile'">Profile</router-link>
+            <router-link class="dropdown-item" to="/profile">Profile</router-link>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
           </div>

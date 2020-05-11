@@ -92,7 +92,9 @@
                 <img src="/img/icons/paper-plane.svg" />
               </div>
               <h2>Send Email</h2>
-              <p>Send unlimited numbers of email to anyone from anywhere you want!</p>
+              <p
+                style="min-height:85px;"
+              >Send unlimited numbers of email to anyone from anywhere you want!</p>
             </div>
           </div>
           <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
@@ -101,7 +103,9 @@
                 <img src="/img/icons/data-protection.svg" />
               </div>
               <h2>Secured</h2>
-              <p>We are working to make your data more secure! So no need to worry about it!</p>
+              <p
+                style="min-height:85px;"
+              >We are working to make your data more secure! So no need to worry about it!</p>
             </div>
           </div>
           <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
@@ -110,7 +114,7 @@
                 <img src="/img/icons/privacy.svg" />
               </div>
               <h2>Hide yourself!</h2>
-              <p>Hide yourself from the Internet and be safe from it!</p>
+              <p style="min-height:85px;">Hide yourself from the Internet and be safe from it!</p>
             </div>
           </div>
         </div>
@@ -126,9 +130,14 @@
             <p class="lead">
               The aim of the project is to learn more about web development and web security. This was my level 2 term 2 project.
               This project is still under development. If you have any query or anything to say please don't forget to send me
-              an email. I also added my other contact link below. 
+              an email. I also added my other contact link below.
             </p>
-            <p><i>I want to thanks <a href="https://www.facebook.com/nishanul.nishat" target="_blank">Nishat</a> for the cover photo of this page. </i></p>
+            <p>
+              <i>
+                I want to thanks
+                <a href="https://www.facebook.com/nishanul.nishat" target="_blank">Nishat</a> for the cover photo of this page.
+              </i>
+            </p>
           </div>
         </div>
       </div>

@@ -11,10 +11,26 @@
           <i class="fas fa-arrow-right toggle-display" id="right-arrow-id"></i>
         </button>
       </li>
-      <li class="nav-item" v-for="(nav, index) in nav_link" v-bind:key="index">
-        <router-link v-if="nav.name!='Account'" v-bind:to="nav.path" class="nav-link">
-          <i v-bind:class="nav.fontawesome_class"></i>
-          <span>{{ nav.name }}</span>
+      <li class="nav-item">
+        <router-link to="/compose" class="nav-link">
+          <i class="fas fa-pencil-alt"></i>
+          <span>Compose</span>
+        </router-link>
+        <router-link to="/inbox" class="nav-link">
+          <i class="fas fa-envelope"></i>
+          <span>Inbox</span>
+        </router-link>
+        <router-link to="/sent" class="nav-link">
+          <i class="fas fa-paper-plane"></i>
+          <span>Sent</span>
+        </router-link>
+        <router-link to="/veilbox" class="nav-link">
+          <i class="fas fa-mask"></i>
+          <span>Veilbox</span>
+        </router-link>
+        <router-link to="/bin" class="nav-link">
+          <i class="fas fa-trash-alt"></i>
+          <span>Bin</span>
         </router-link>
       </li>
       <li class="nav-item dropdown">
@@ -31,9 +47,9 @@
           <span>Account</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <router-link class="dropdown-item" v-bind:to="'/profile'">Profile</router-link>
-          <router-link class="dropdown-item" v-bind:to="'/settings'">Account Settings</router-link>
-          <router-link class="dropdown-item" v-bind:to="'/forget_password'">Forgot Password</router-link>
+          <router-link class="dropdown-item" to="/profile">Profile</router-link>
+          <router-link class="dropdown-item" to="/settings">Account Settings</router-link>
+          <router-link class="dropdown-item" to="/forget_password">Forgot Password</router-link>
         </div>
       </li>
     </ul>
@@ -42,9 +58,7 @@
 <script>
 export default {
   data: function() {
-    return {
-      nav_link: window.GLOBAL_VALUE.variable.sidebar
-    };
+    return {};
   },
   methods: {
     toggleDisplay() {
